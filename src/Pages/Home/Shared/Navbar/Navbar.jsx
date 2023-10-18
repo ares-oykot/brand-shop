@@ -2,70 +2,72 @@ import { Link, NavLink } from "react-router-dom";
 import Logo from "../../../../assets/shopping-bag.png"
 import textLogo from "../../../../assets/logo.png"
 import profile from "../../../../assets/user.png"
-
-const Navbar = () => {
+import moon from "../../../../assets/moon.png"
+import moon1 from "../../../../assets/moon1.png"
+const Navbar = ({ toggleDarkMode, isDarkMode }) => {
     const user = ''
     const handleSignOut = {
 
     }
-    const navLinks = <div className="flex flex-col lg:flex-row text-lg gap-2 font-semibold">
-        <li>
-            <NavLink
-                to="/"
-                className={({ isActive, isPending }) =>
-                    isPending
-                        ? "pending"
-                        : isActive
-                            ? "text-white px-5 py-2 w-full rounded-full bg-orange-500"
-                            : "bg-yellow-500 duration-300 w-full hover:px-6 hover:bg-yellow-600 py-2 rounded-3xl px-5"
-                }
-            >
-                Home
-            </NavLink>
-        </li>
-        <li>
-            <NavLink
-                to="/addProduct"
-                className={({ isActive, isPending }) =>
-                    isPending
-                        ? "pending"
-                        : isActive
-                            ? "text-white py-2 px-5 rounded-full w-full bg-orange-500"
-                            : "bg-yellow-500 duration-300 hover:px-6 w-full hover:bg-yellow-600 py-2 rounded-3xl px-5"
-                }
-            >
-                Add Product
-            </NavLink>
-        </li>
-        <li>
-            <NavLink
-                to="/myCart"
-                className={({ isActive, isPending }) =>
-                    isPending
-                        ? "pending"
-                        : isActive
-                            ? "text-white py-2 px-5 rounded-full shadow bg-orange-500"
-                            : "bg-yellow-500 duration-300 hover:px-6 hover:bg-yellow-600 py-2 rounded-3xl px-5"
-                }
-            >
-                My Cart
-            </NavLink>
-        </li>
-        <li>
-            <NavLink
-                to="/signIn"
-                className={({ isActive, isPending }) =>
-                    isPending
-                        ? "pending"
-                        : isActive
-                            ? "text-white py-2 px-5 rounded-full shadow bg-orange-500"
-                            : "bg-yellow-500 duration-300 hover:px-6 hover:bg-yellow-600 py-2 rounded-3xl px-5"
-                }
-            >
-                Sign In
-            </NavLink>
-        </li>
-    </div>
+    const navLinks =
+        <div className="flex flex-col lg:flex-row text-lg gap-2 font-semibold">
+            <li>
+                <NavLink
+                    to="/"
+                    className={({ isActive, isPending }) =>
+                        isPending
+                            ? "pending"
+                            : isActive
+                                ? "text-white px-5 py-2 w-full rounded-full bg-orange-500"
+                                : "bg-yellow-500 duration-300 w-full hover:px-6 hover:bg-yellow-600 py-2 rounded-3xl px-5"
+                    }
+                >
+                    Home
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to="/addProduct"
+                    className={({ isActive, isPending }) =>
+                        isPending
+                            ? "pending"
+                            : isActive
+                                ? "text-white py-2 px-5 rounded-full w-full bg-orange-500"
+                                : "bg-yellow-500 duration-300 hover:px-6 w-full hover:bg-yellow-600 py-2 rounded-3xl px-5"
+                    }
+                >
+                    Add Product
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to="/myCart"
+                    className={({ isActive, isPending }) =>
+                        isPending
+                            ? "pending"
+                            : isActive
+                                ? "text-white py-2 px-5 rounded-full shadow bg-orange-500"
+                                : "bg-yellow-500 duration-300 hover:px-6 hover:bg-yellow-600 py-2 rounded-3xl px-5"
+                    }
+                >
+                    My Cart
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to="/signIn"
+                    className={({ isActive, isPending }) =>
+                        isPending
+                            ? "pending"
+                            : isActive
+                                ? "text-white py-2 px-5 rounded-full shadow bg-orange-500"
+                                : "bg-yellow-500 duration-300 hover:px-6 hover:bg-yellow-600 py-2 rounded-3xl px-5"
+                    }
+                >
+                    Sign In
+                </NavLink>
+            </li>
+        </div>
     return (
         <div>
             <div className="navbar bg-[#ffcb7d]">
@@ -92,12 +94,24 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <button className="mr-5 mt-1" onClick={toggleDarkMode}>
+                        {
+                            isDarkMode? 
+                            <>
+                                <img className="w-8 h-8" src={moon} alt="" />
+                            </>
+                            :
+                            <>
+                                <img className="w-8 h-8" src={moon1} alt="" />
+                            </>
+                        }
+                    </button>
                     {
                         user?.displayName ? <p className="text-[9px] md:text-base font-bold mr-2 bg-emerald-300 px-2 rounded-sm">{user.displayName}</p>
                             :
                             ""
                     }
-                    <div className="dropdown dropdown-hover">
+                    <div className="dropdown z-50 dropdown-hover">
 
                         <label tabIndex={0} className="">
                             <div className="w-10">

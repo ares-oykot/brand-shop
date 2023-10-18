@@ -41,32 +41,32 @@ const router = createBrowserRouter([
             {
                 path: '/apple',
                 element: <Apple></Apple>,
-                loader: () => fetch('http://localhost:5000/')
+                loader: () => fetch('http://localhost:5000/apple')
             },
             {
                 path: '/samsung',
                 element: <Samsung></Samsung>,
-                loader: () => fetch('http://localhost:5000/')
+                loader: () => fetch('http://localhost:5000/samsung')
             },
             {
                 path: '/xiaomi',
                 element: <Xiaomi></Xiaomi>,
-                loader: () => fetch('http://localhost:5000/')
+                loader: () => fetch('http://localhost:5000/xiaomi')
             },
             {
                 path: '/asus',
                 element: <Asus></Asus>,
-                loader: () => fetch('http://localhost:5000/')
+                loader: () => fetch('http://localhost:5000/asus')
             },
             {
                 path: '/google',
                 element: <Google></Google>,
-                loader: () => fetch('http://localhost:5000/')
+                loader: () => fetch('http://localhost:5000/google')
             },
             {
                 path: '/sony',
                 element: <Sony></Sony>,
-                loader: () => fetch('http://localhost:5000/')
+                loader: () => fetch('http://localhost:5000/sony')
             }
         ]
     }

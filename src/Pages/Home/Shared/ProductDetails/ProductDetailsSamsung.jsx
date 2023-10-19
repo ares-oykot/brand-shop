@@ -9,7 +9,8 @@ const ProductDetailsSamsung = () => {
         const type = samsungProduct.productType;
         const brand = samsungProduct.brand;
         const rating = samsungProduct.rating;
-        const cart = {name, description, price, type, brand, rating};
+        const photoURL = samsungProduct.URL;
+        const cart = {name, description, price, type, brand, rating, photoURL};
         
         fetch('http://localhost:5000/cart', {
             method: 'POST', 

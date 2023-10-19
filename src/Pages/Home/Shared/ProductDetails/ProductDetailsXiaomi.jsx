@@ -9,7 +9,8 @@ const ProductDetailsXiaomi = () => {
         const type = xiaomiProduct.productType;
         const brand = xiaomiProduct.brand;
         const rating = xiaomiProduct.rating;
-        const cart = {name, description, price, type, brand, rating};
+        const photoURL = xiaomiProduct.URL;
+        const cart = {name, description, price, type, brand, rating, photoURL};
         
         fetch('http://localhost:5000/cart', {
             method: 'POST', 

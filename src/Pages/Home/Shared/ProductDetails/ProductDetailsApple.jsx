@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 const ProductDetailsApple = () => {
     const appleProduct = useLoaderData();
+    console.log(appleProduct);
     const handleAddToCart = () => {
         const name = appleProduct.name;
         const description = appleProduct.description;
@@ -9,7 +10,8 @@ const ProductDetailsApple = () => {
         const type = appleProduct.productType;
         const brand = appleProduct.brand;
         const rating = appleProduct.rating;
-        const cart = {name, description, price, type, brand, rating};
+        const photoURL = appleProduct.URL;
+        const cart = {name, description, price, type, brand, rating, photoURL};
         
         fetch('http://localhost:5000/cart', {
             method: 'POST', 

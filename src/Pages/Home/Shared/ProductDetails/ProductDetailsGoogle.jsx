@@ -9,7 +9,8 @@ const ProductDetailsGoogle = () => {
         const type = googleProduct.productType;
         const brand = googleProduct.brand;
         const rating = googleProduct.rating;
-        const cart = {name, description, price, type, brand, rating};
+        const photoURL = googleProduct.URL;
+        const cart = {name, description, price, type, brand, rating, photoURL};
         
         fetch('http://localhost:5000/cart', {
             method: 'POST', 

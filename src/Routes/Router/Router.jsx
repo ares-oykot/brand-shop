@@ -11,6 +11,12 @@ import Xiaomi from "../../Pages/Home/Shared/Brand/Xiaomi";
 import Asus from "../../Pages/Home/Shared/Brand/Asus";
 import Google from "../../Pages/Home/Shared/Brand/Google";
 import Sony from "../../Pages/Home/Shared/Brand/Sony";
+import ProductDetailsApple from "../../Pages/Home/Shared/ProductDetails/ProductDetailsApple";
+import ProductDetailsSamsung from "../../Pages/Home/Shared/ProductDetails/ProductDetailsSamsung";
+import ProductDetailsAsus from "../../Pages/Home/Shared/ProductDetails/ProductDetailsAsus";
+import ProductDetailsXiaomi from "../../Pages/Home/Shared/ProductDetails/ProductDetailsXiaomi";
+import ProductDetailsSony from "../../Pages/Home/Shared/ProductDetails/ProductDetailsSony";
+import ProductDetailsGoogle from "../../Pages/Home/Shared/ProductDetails/ProductDetailsGoogle";
 
 const router = createBrowserRouter([
     {
@@ -67,6 +73,36 @@ const router = createBrowserRouter([
                 path: '/sony',
                 element: <Sony></Sony>,
                 loader: () => fetch('http://localhost:5000/sony')
+            },
+            {
+                path: '/productDetailsApple/:id',
+                element: <ProductDetailsApple></ProductDetailsApple>,
+                loader: ({ params }) => fetch(`http://localhost:5000/apple/${params.id}`)
+            },
+            {
+                path: '/productDetailsSamsung/:id',
+                element: <ProductDetailsSamsung></ProductDetailsSamsung>,
+                loader: ({params}) => fetch(`http://localhost:5000/samsung/${params.id}`)
+            },
+            {
+                path: '/productDetailsAsus/:id',
+                element: <ProductDetailsAsus></ProductDetailsAsus>,
+                loader: ({params}) => fetch(`http://localhost:5000/asus/${params.id}`)
+            },
+            {
+                path: '/productDetailsXiaomi/:id',
+                element: <ProductDetailsXiaomi></ProductDetailsXiaomi>,
+                loader: ({params}) => fetch(`http://localhost:5000/xiaomi/${params.id}`)
+            },
+            {
+                path: '/productDetailsSony/:id',
+                element: <ProductDetailsSony></ProductDetailsSony>,
+                loader: ({params}) => fetch(`http://localhost:5000/sony/${params.id}`)
+            },
+            {
+                path: '/productDetailsGoogle/:id',
+                element: <ProductDetailsGoogle></ProductDetailsGoogle>,
+                loader: ({params}) => fetch(`http://localhost:5000/google/${params.id}`)
             }
         ]
     }

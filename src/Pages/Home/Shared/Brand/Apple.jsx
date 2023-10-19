@@ -1,11 +1,18 @@
 import { useLoaderData } from "react-router-dom";
+import Advertisement from "../Advertisement/Advertisement";
 
 const Apple = () => {
     const apple = useLoaderData();
     console.log(apple);
     return (
         <div>
-            <h1>Apple</h1>
+            <Advertisement></Advertisement>
+            {
+                apple?.map(product => 
+                <div key={product._id}>
+                    
+                </div>)
+            }
         </div>
     );
 };

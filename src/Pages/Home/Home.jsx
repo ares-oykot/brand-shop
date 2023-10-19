@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div>
             <BannerSlider></BannerSlider>
-            <div className="max-w-screen-xl mx-auto">
+            <div className="">
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
                     {
                         brands?.map(brand => <ProductBrand key={brand._id} brand={brand} ></ProductBrand>)

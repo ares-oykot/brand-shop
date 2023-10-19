@@ -1,11 +1,11 @@
 import { useLoaderData } from "react-router-dom";
+import Advertisement from "../Advertisement/Advertisement";
 
 const Asus = () => {
     const asus = useLoaderData();
-    console.log(asus);
     return (
         <div>
-            <h1>Asus</h1>
+            <Advertisement></Advertisement>
         </div>
     );
 };

@@ -1,11 +1,12 @@
 import { useLoaderData } from "react-router-dom";
+import Advertisement from "../Advertisement/Advertisement";
 
 const Google = () => {
     const google = useLoaderData();
     console.log(google);
     return (
         <div>
-            <h1>Google</h1>
+            <Advertisement></Advertisement>
         </div>
     );
 };

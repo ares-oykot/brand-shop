@@ -90,6 +90,9 @@ const AddProduct = () => {
                             <option value="laptop">Laptop</option>
                             <option value="monitor">Monitor</option>
                             <option value="watch">Watch</option>
+                            <option value="camera">Camera</option>
+                            <option value="earphone">Earphone</option>
+                            <option value="bluetooth">Bluetooth</option>
                         </select>
                         <div className="form-control">
                             <button className="btn btn-primary">Add</button>

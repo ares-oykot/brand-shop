@@ -1,11 +1,11 @@
 import { useLoaderData } from "react-router-dom";
+import Advertisement from "../Advertisement/Advertisement";
 
 const Xiaomi = () => {
     const xiaomi = useLoaderData();
-    console.log(xiaomi);
     return (
         <div>
-            <h1>Xiaomi</h1>
+            <Advertisement></Advertisement>
         </div>
     );
 };

@@ -20,14 +20,14 @@ import gift5 from '../../../../assets/x3Pro.png'
 import gift6 from '../../../../assets/google-pixel-Watch.png'
 const Advertisement = () => {
     return (
-        <div>
+        <div className='max-w-screen-xl mx-auto'>
             <Swiper
                 modules={[Autoplay, Pagination, Navigation]}
                 spaceBetween={50}
                 slidesPerView={1}
                 navigation
                 autoplay={{
-                    delay: 45000,
+                    delay: 4000,
                     disableOnInteraction: false,
                 }}
                 pagination={{ clickable: true }}

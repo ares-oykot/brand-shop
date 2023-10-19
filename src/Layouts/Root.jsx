@@ -10,7 +10,7 @@ const Root = () => {
     return (
         <div className={`${isDarkMode ? "bg-black text-white" : " bg-white text-black"}`}>
             <Navbar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} ></Navbar>
-            <div className="max-w-screen-xl mx-auto">
+            <div className="">
                 <Outlet></Outlet>
             </div>
         </div>

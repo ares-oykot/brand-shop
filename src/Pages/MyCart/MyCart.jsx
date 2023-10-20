@@ -1,7 +1,21 @@
-import {useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 const MyCart = () => {
-    const myCart = useLoaderData();
+    const loadedMyCart = useLoaderData();
+    const [myCart, setMyCart] = useState(loadedMyCart);
+    const handleRemove = (id) => {
+        fetch(`http://localhost:5000/cart/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if(data?.deletedCount > 0){
+                    const remaining = myCart?.filter(product => product._id !== id);
+                    setMyCart(remaining);
+                }
+            });
+    }
     return (
         <div>
             <div className="grid grid-cols-2 gap-5 mt-5 max-w-screen-xl mx-auto">
@@ -23,7 +37,7 @@ const MyCart = () => {
                                     </div>
                                     <div className="flex gap-2">
                                         <button className="bg-green-500 hover:bg-green-600 duration-200 px-7 py-1 rounded mt-1 font-medium">Buy</button>
-                                        <button className="bg-green-500 hover:bg-green-600 duration-200 px-7 py-1 rounded mt-1 font-medium">Remove To Cart</button>
+                                        <button onClick={() => handleRemove(product._id)} className="bg-green-500 hover:bg-green-600 duration-200 px-7 py-1 rounded mt-1 font-medium">Remove To Cart</button>
                                     </div>
                                 </div>
                             </div>

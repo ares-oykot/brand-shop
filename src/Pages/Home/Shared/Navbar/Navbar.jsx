@@ -67,6 +67,20 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
                     Sign In
                 </NavLink>
             </li>
+            <li>
+                <NavLink
+                    to="/signUp"
+                    className={({ isActive, isPending }) =>
+                        isPending
+                            ? "pending"
+                            : isActive
+                                ? "text-white py-2 px-5 rounded-full shadow bg-orange-500"
+                                : "bg-yellow-500 duration-300 hover:px-6 hover:bg-yellow-600 py-2 rounded-3xl px-5"
+                    }
+                >
+                    Sign Up
+                </NavLink>
+            </li>
         </div>
     return (
         <div>

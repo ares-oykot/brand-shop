@@ -17,6 +17,7 @@ import ProductDetailsAsus from "../../Pages/Home/Shared/ProductDetails/ProductDe
 import ProductDetailsXiaomi from "../../Pages/Home/Shared/ProductDetails/ProductDetailsXiaomi";
 import ProductDetailsSony from "../../Pages/Home/Shared/ProductDetails/ProductDetailsSony";
 import ProductDetailsGoogle from "../../Pages/Home/Shared/ProductDetails/ProductDetailsGoogle";
+import SignUp from "../../Pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -40,10 +41,6 @@ const router = createBrowserRouter([
                 path: '/myCart',
                 element: <MyCart></MyCart>,
                 loader: () => fetch('http://localhost:5000/cart')
-            },
-            {
-                path: '/signIn',
-                element: <SignIn></SignIn>
             },
             {
                 path: '/apple',
@@ -104,6 +101,14 @@ const router = createBrowserRouter([
                 path: '/productDetailsGoogle/:id',
                 element: <ProductDetailsGoogle></ProductDetailsGoogle>,
                 loader: ({params}) => fetch(`http://localhost:5000/google/${params.id}`)
+            },
+            {
+                path: '/signIn',
+                element: <SignIn></SignIn>
+            },
+            {
+                path: '/signUp',
+                element: <SignUp></SignUp>
             }
         ]
     }

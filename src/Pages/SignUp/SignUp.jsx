@@ -3,6 +3,7 @@ import facebook from "../../assets/facebook(1).png"
 import twitter from "../../assets/twitter.png"
 import google from "../../assets/google.png"
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
     return (
@@ -37,9 +38,17 @@ const SignUp = () => {
                             <input className="input  rounded-3xl mt-5 input-bordered w-full" type={showPassword ? 'text' : 'password'} name="password" id="password" placeholder="Enter Your Password" required />
                             <span className="absolute right-4 bottom-4 cursor-pointer text-lg" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <AiFillEye></AiFillEye> : <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span>
                         </div>
-                        <div className="mt-5 bg-[#476cc1] hover:bg-[#2b437b] duration-200 rounded-3xl flex justify-center items-center gap-1 py-2 cursor-pointer">
+                        <label className="label justify-center">
+                            <a href="#" className="label-text-alt link  link-hover">Forgot password?</a>
+                        </label>
+                        <div className="text-center">
+                            <input type="checkbox" name="terms" id="terms" />
+                            <label className="ml-3" htmlFor="terms">Accept our <a className="text-blue-400 cursor-pointer hover:underline">Terms and Conditions</a></label>
+                        </div>
+                        <div className="mt-2 bg-[#476cc1] hover:bg-[#2b437b] duration-200 rounded-3xl flex justify-center items-center gap-1 py-2 cursor-pointer">
                             <p className="text-lg font-semibold text-white">Sign Up</p>
                         </div>
+                        <p className='text-center mt-2'>Already have an account? Please <Link to="/signIn" className="text-blue-400">login here</Link></p>
                     </div>
                 </form>
             </div>

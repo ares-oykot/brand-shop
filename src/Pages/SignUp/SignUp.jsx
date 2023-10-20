@@ -2,17 +2,60 @@ import { AiFillEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import facebook from "../../assets/facebook(1).png"
 import twitter from "../../assets/twitter.png"
 import google from "../../assets/google.png"
-import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { useContext, useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
+import { AuthContext } from '../../Providers/AuthProvider';
+
+
+
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const {googleSignIn} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const handleSignUp = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const accepted = form.terms.checked;
+
+        if (password.length < 6) {
+            swal("Oops!!", "Password should be at last 6 characters", "error");
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            swal("Oops!!", "Your password should have at last one upper case characters", "error");
+            return;
+        }
+        else if (!/^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/.test(password)) {
+            swal("Oops!!", "Password must contain at least one Special Symbol.", "error");
+            return;
+        }
+        else if (!accepted) {
+            swal("Oops!!", "Please accepted our terms and conditions", "error");
+            return;
+        }
+    };
+    const handleGoogleSignUp = () => {
+        googleSignIn()
+            .then(() => {
+                swal("Nice!!", "User registration is successful", "success");
+                navigate("/");
+            })
+            .catch(error => {
+                swal("Oops!!", `${error.message}`, "error");
+            });
+    };
     return (
         <div className='mb-20'>
             <div className="max-w-screen-xl mx-auto">
-                <form className="w-2/5 mx-auto rounded-t-xl rounded-b-xl shadow-xl pb-10 my-10">
+                <form onSubmit={handleSignUp} className="w-2/5 mx-auto rounded-t-xl rounded-b-xl shadow-xl pb-10 my-10">
                     <h1 className="py-6 rounded-t-xl  bg-[#6FB554] text-center text-white font-bold text-3xl">Sign Up</h1>
                     <div className="px-7">
-                        <div className="mt-10 bg-gradient-to-r from-green-400 to-red-500 duration-500 hover:from-red-500 hover:to-green-400 rounded-3xl flex justify-center items-center gap-1 py-2 cursor-pointer">
+                        <div onClick={handleGoogleSignUp} className="mt-10 bg-gradient-to-r from-green-400 to-red-500 duration-500 hover:from-red-500 hover:to-green-400 rounded-3xl flex justify-center items-center gap-1 py-2 cursor-pointer">
                             <img className="w-8 p-1 h-8 rounded bg-white " src={google} alt="" />
                             <p className="text-lg font-semibold text-white">Sign Up With Google</p>
                         </div>
@@ -45,9 +88,7 @@ const SignUp = () => {
                             <input type="checkbox" name="terms" id="terms" />
                             <label className="ml-3" htmlFor="terms">Accept our <a className="text-blue-400 cursor-pointer hover:underline">Terms and Conditions</a></label>
                         </div>
-                        <div className="mt-2 bg-[#476cc1] hover:bg-[#2b437b] duration-200 rounded-3xl flex justify-center items-center gap-1 py-2 cursor-pointer">
-                            <p className="text-lg font-semibold text-white">Sign Up</p>
-                        </div>
+                        <input className="w-full mt-2 bg-[#476cc1] hover:bg-[#2b437b] duration-200 rounded-3xl flex justify-center items-center gap-1 py-2 text-lg font-semibold text-white" type="submit" value="Sign Up" />
                         <p className='text-center mt-2'>Already have an account? Please <Link to="/signIn" className="text-blue-400">login here</Link></p>
                     </div>
                 </form>

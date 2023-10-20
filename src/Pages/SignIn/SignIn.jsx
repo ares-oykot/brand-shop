@@ -3,13 +3,14 @@ import facebook from "../../assets/facebook(1).png"
 import twitter from "../../assets/twitter.png"
 import google from "../../assets/google.png"
 import { useContext, useState } from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import swal from 'sweetalert';
 const SignIn = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { googleSignIn, signIn } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;

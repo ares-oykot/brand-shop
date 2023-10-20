@@ -8,7 +8,7 @@ const Apple = () => {
             <Advertisement></Advertisement>
             <div className="grid grid-cols-2 gap-5 mt-5 hover:shadow-xl max-w-screen-xl mx-auto">
                 {
-                    apple?.map((product, idx) =>
+                    apple?.map((product) =>
                         <div key={product._id}>
                             <div style={{ height: "16.5rem" }} className="p-5 bg-amber-200 hover:bg-slate-200 duration-200 rounded-md flex">
                                 <div className="w-full">

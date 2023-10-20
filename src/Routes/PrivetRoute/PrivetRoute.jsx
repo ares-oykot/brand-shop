@@ -1,7 +1,9 @@
-import { AuthContext } from "../../Providers/AuthProviders";
-import { Navigate, useLocation } from "react-router-dom";
+import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import { Triangle } from 'react-loader-spinner'
-import { useContext } from "react";
+import { Navigate, useLocation} from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
+
 const PrivetRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
@@ -25,5 +27,7 @@ const PrivetRoute = ({ children }) => {
         <Navigate to="/signIn" state={location.pathname}></Navigate>
     );
 };
-
+PrivetRoute.propTypes = {
+    children: PropTypes.node
+}
 export default PrivetRoute;

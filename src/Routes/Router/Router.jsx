@@ -18,6 +18,7 @@ import ProductDetailsXiaomi from "../../Pages/Home/Shared/ProductDetails/Product
 import ProductDetailsSony from "../../Pages/Home/Shared/ProductDetails/ProductDetailsSony";
 import ProductDetailsGoogle from "../../Pages/Home/Shared/ProductDetails/ProductDetailsGoogle";
 import SignUp from "../../Pages/SignUp/SignUp";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
     {
@@ -35,12 +36,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addProduct',
-                element: <AddProduct></AddProduct>
+                element: <PrivetRoute><AddProduct></AddProduct></PrivetRoute>
             },
             {
                 path: '/myCart',
-                element: <MyCart></MyCart>,
-                loader: () => fetch('http://localhost:5000/cart')
+                element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,
+                loader: () => fetch('http://localhost:5000/cart')   
             },
             {
                 path: '/apple',
@@ -74,33 +75,36 @@ const router = createBrowserRouter([
             },
             {
                 path: '/productDetailsApple/:id',
-                element: <ProductDetailsApple></ProductDetailsApple>,
+                element: <PrivetRoute><ProductDetailsApple></ProductDetailsApple></PrivetRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/apple/${params.id}`)
             },
             {
                 path: '/productDetailsSamsung/:id',
-                element: <ProductDetailsSamsung></ProductDetailsSamsung>,
+                element: <PrivetRoute><ProductDetailsSamsung></ProductDetailsSamsung></PrivetRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/samsung/${params.id}`)
             },
             {
                 path: '/productDetailsAsus/:id',
-                element: <ProductDetailsAsus></ProductDetailsAsus>,
+                element: <PrivetRoute><ProductDetailsAsus></ProductDetailsAsus></PrivetRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/asus/${params.id}`)
             },
             {
                 path: '/productDetailsXiaomi/:id',
-                element: <ProductDetailsXiaomi></ProductDetailsXiaomi>,
+                element: <PrivetRoute><ProductDetailsXiaomi></ProductDetailsXiaomi></PrivetRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/xiaomi/${params.id}`)
             },
             {
                 path: '/productDetailsSony/:id',
-                element: <ProductDetailsSony></ProductDetailsSony>,
+                element: <PrivetRoute><ProductDetailsSony></ProductDetailsSony></PrivetRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/sony/${params.id}`)
             },
             {
                 path: '/productDetailsGoogle/:id',
-                element: <ProductDetailsGoogle></ProductDetailsGoogle>,
+                element: <PrivetRoute><ProductDetailsGoogle></ProductDetailsGoogle></PrivetRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/google/${params.id}`)
+            },
+            {
+                    
             },
             {
                 path: '/signIn',

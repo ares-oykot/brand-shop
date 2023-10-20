@@ -6,12 +6,12 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../Providers/AuthProvider';
-
+import { updateProfile } from 'firebase/auth';
 
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const {googleSignIn} = useContext(AuthContext);
+    const {googleSignIn, createUser} = useContext(AuthContext);
     const navigate = useNavigate();
     const handleSignUp = event => {
         event.preventDefault();
@@ -38,11 +38,30 @@ const SignUp = () => {
             swal("Oops!!", "Please accepted our terms and conditions", "error");
             return;
         }
+
+        createUser(email, password)
+            .then((result) => {
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photo,
+                })
+                    .then(() => {
+
+                    })
+                    .catch(() => {
+
+                    });
+                swal("Nice!!", "User Sign Up successful", "success");
+                navigate("/");
+            })
+            .catch(error => {
+                swal("Oops!!", `${error.message}`, "error");
+            });
     };
     const handleGoogleSignUp = () => {
         googleSignIn()
             .then(() => {
-                swal("Nice!!", "User registration is successful", "success");
+                swal("Nice!!", "User Sign Up successful", "success");
                 navigate("/");
             })
             .catch(error => {

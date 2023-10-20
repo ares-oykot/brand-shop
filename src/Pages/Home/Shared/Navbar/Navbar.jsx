@@ -4,10 +4,18 @@ import textLogo from "../../../../assets/logo.png"
 import profile from "../../../../assets/user.png"
 import moon from "../../../../assets/moon.png"
 import moon1 from "../../../../assets/moon1.png"
+import { useContext } from "react";
+import { AuthContext } from "../../../../Providers/AuthProvider";
 const Navbar = ({ toggleDarkMode, isDarkMode }) => {
-    const user = ''
-    const handleSignOut = {
+    const { user, logOut } = useContext(AuthContext);
+    const handleSignOut = () => {
+        logOut()
+            .then(() => {
 
+            })
+            .catch(() => {
+                
+            });
     }
     const navLinks =
         <div className="flex flex-col lg:flex-row text-lg gap-2 font-semibold">
@@ -121,7 +129,7 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
                         }
                     </button>
                     {
-                        user?.displayName ? <p className="text-[9px] md:text-base font-bold mr-2 bg-emerald-300 px-2 rounded-sm">{user.displayName}</p>
+                        user?.displayName ? <p className="text-[9px] md:text-base font-bold mr-2 py-2 bg-yellow-500 px-2 rounded-3xl">{user.displayName}</p>
                             :
                             ""
                     }
@@ -137,9 +145,9 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
                         </label>
                         <ul tabIndex={0} className="dropdown-content z-[1] menu  shadow bg-base-100 rounded p-1 w-32  right-0">
                             {
-                                user ? <button onClick={handleSignOut} className=" bg-emerald-600 w-full text-white px-6 py-2 rounded-sm">Sign Out</button>
+                                user ? <button onClick={handleSignOut} className=" bg-orange-500 w-full text-white px-6 py-2 duration-300 rounded-sm">Sign Out</button>
                                     :
-                                    <Link to="/login"><button className=" bg-emerald-600 w-full text-white px-6 py-2 rounded-sm">Login</button></Link>
+                                    <Link to="/signIn"><button className=" bg-emerald-600 w-full text-white px-6 py-2 duration-300 rounded-sm">Login</button></Link>
                             }
                         </ul>
                     </div>

@@ -8,8 +8,22 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import swal from 'sweetalert';
 const SignIn = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const {googleSignIn} = useContext(AuthContext);
+    const { googleSignIn, signIn } = useContext(AuthContext);
     const navigate = useNavigate();
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        signIn(email, password)
+            .then(() => {
+                swal("Nice!!", "User sign in successful", "success");
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => {
+                swal("Oops!!", `${error.message}`, "error");
+            });
+    }
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(() => {
@@ -24,10 +38,10 @@ const SignIn = () => {
         <div>
             <div className='mb-20'>
                 <div className="max-w-screen-xl mx-auto">
-                    <form  className="w-2/5 mx-auto rounded-t-xl rounded-b-xl shadow-xl pb-10 my-10">
+                    <form onSubmit={handleLogin} className="w-2/5 mx-auto rounded-t-xl rounded-b-xl shadow-xl pb-10 my-10">
                         <h1 className="py-6 rounded-t-xl  bg-[#6FB554] text-center text-white font-bold text-3xl">Sign In</h1>
-                        <div onClick={handleGoogleSignIn} className="px-7">
-                            <div className="mt-10 bg-gradient-to-r from-green-400 to-red-500 duration-500 hover:from-red-500 hover:to-green-400 rounded-3xl flex justify-center items-center gap-1 py-2 cursor-pointer">
+                        <div className="px-7">
+                            <div onClick={handleGoogleSignIn} className="mt-10 bg-gradient-to-r from-green-400 to-red-500 duration-500 hover:from-red-500 hover:to-green-400 rounded-3xl flex justify-center items-center gap-1 py-2 cursor-pointer">
                                 <img className="w-8 p-1 h-8 rounded bg-white " src={google} alt="" />
                                 <p className="text-lg font-semibold text-white">Sign In With Google</p>
                             </div>
@@ -50,9 +64,7 @@ const SignIn = () => {
                             <label className="label justify-center">
                                 <a href="#" className="label-text-alt link  link-hover">Forgot password?</a>
                             </label>
-                            <div className="mt-2 bg-[#476cc1] hover:bg-[#2b437b] duration-200 rounded-3xl flex justify-center items-center gap-1 py-2 cursor-pointer">
-                                <p className="text-lg font-semibold text-white">Sign In</p>
-                            </div>
+                            <input className="w-full mt-2 bg-[#476cc1] hover:bg-[#2b437b] duration-200 rounded-3xl flex justify-center items-center gap-1 py-2 text-lg font-semibold text-white" type="submit" value="Sign In" />
                             <p className='text-center mt-2'>New to this website? Please <Link to="/signUp" className="text-blue-400">Sign Up Here</Link></p>
                         </div>
                     </form>

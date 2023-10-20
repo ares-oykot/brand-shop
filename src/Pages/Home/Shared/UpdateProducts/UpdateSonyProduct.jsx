@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
-const UpdateAsusProduct = () => {
-    const asus = useLoaderData();
-    const [brand, setBrand] = useState(asus.brand);
-    const [productType, setProductType] = useState(asus.productType);
+const UpdateSonyProduct = () => {
+    const sony = useLoaderData();
+    const [brand, setBrand] = useState(sony.brand);
+    const [productType, setProductType] = useState(sony.productType);
     const handleSelectBrand = (event) => {
         setBrand(event.target.value);
     };
@@ -21,7 +21,7 @@ const UpdateAsusProduct = () => {
         const rating = form.rating.value;
         const URL = form.photo.value;
         const products = { name, price, description, rating, URL, productType, brand};
-        fetch(`http://localhost:5000/asus/${asus._id}`, {
+        fetch(`http://localhost:5000/sony/${sony._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -38,37 +38,37 @@ const UpdateAsusProduct = () => {
             <div className="h-[150vh]">
                 <div className="md:w-1/2 mx-auto shadow-xl">
                     <h2 className="text-center text-3xl font-bold bg-slate-200 pt-4 text-lime-500">Update Product</h2>
-                    <div className="bg-slate-200 flex justify-center items-center py-5"><img className='rounded-lg h-[170px] lg:h-[280px]' src={asus.URL} alt="" /></div>
+                    <div className="bg-slate-200 flex justify-center items-center py-5"><img className='rounded-lg h-[170px] lg:h-[280px]' src={sony.URL} alt="" /></div>
                     <form onSubmit={handleUpdateProduct} className="px-8 card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name="name" defaultValue={asus.name} placeholder="Enter Product Name" className="input bg-white input-bordered" />
+                            <input type="text" name="name" defaultValue={sony.name} placeholder="Enter Product Name" className="input bg-white input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Product Price</span>
                             </label>
-                            <input type="text" name="price" defaultValue={asus.price} placeholder="Enter Product Price" className="input bg-white input-bordered" />
+                            <input type="text" name="price" defaultValue={sony.price} placeholder="Enter Product Price" className="input bg-white input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Product Description</span>
                             </label>
-                            <input type="text" name="description" defaultValue={asus.description} placeholder="Enter Product Description" className="input bg-white input-bordered" />
+                            <input type="text" name="description" defaultValue={sony.description} placeholder="Enter Product Description" className="input bg-white input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Product Rating</span>
                             </label>
-                            <input type="text" name="rating" defaultValue={asus.rating} placeholder="Enter Product Rating" className="input bg-white input-bordered" />
+                            <input type="text" name="rating" defaultValue={sony.rating} placeholder="Enter Product Rating" className="input bg-white input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Product Photo URL</span>
                             </label>
-                            <input type="text" name="photo" defaultValue={asus.URL} placeholder="Enter Product Photo URL" className="input bg-white input-bordered" />
+                            <input type="text" name="photo" defaultValue={sony.URL} placeholder="Enter Product Photo URL" className="input bg-white input-bordered" />
                         </div>
                         <label className="label">
                             <span className="label-text">Brand Name</span>
@@ -105,4 +105,4 @@ const UpdateAsusProduct = () => {
     );
 };
 
-export default UpdateAsusProduct;
+export default UpdateSonyProduct;

@@ -35,7 +35,7 @@ const AddProduct = () => {
     return (
         <div className="">
             <h1 className="text-5xl font-bold text-center">Add Product</h1>
-            <div className="h-[150vh]">
+            <div className="">
                 <div className="md:w-1/2 mx-auto shadow-xl">
                     <img className='h-[170px] lg:h-[280px] w-full' src={product} alt="" />
                     <form onSubmit={handleAddProduct} className="px-8 card-body">

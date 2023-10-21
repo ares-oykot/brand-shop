@@ -98,7 +98,7 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
                         <img className="h-12 hidden lg:inline mb-1" src={Logo} alt="" />
                         <img className="h-14 hidden lg:inline " src={textLogo} alt="" />
                     </div>
-                    <div className="dropdown">
+                    <div className="dropdown z-50">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
@@ -107,8 +107,9 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
                         </ul>
                     </div>
                 </div>
-                <div className="md:mr-12 lg:hidden">
-                    <img className="h-10 md:h-14 lg:hidden" src={Logo} alt="" />
+                <div className="mr-12 lg:hidden z-50">
+                    <img className="h-8 md:h-14 lg:hidden" src={Logo} alt="" />
+                    <img className="h-9" src={textLogo} alt="" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="">
@@ -120,16 +121,16 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
                         {
                             isDarkMode? 
                             <>
-                                <img className="w-8 h-8" src={moon} alt="" />
+                                <img className="w-6 h-6 lg:w-8 lg:h-8" src={moon} alt="" />
                             </>
                             :
                             <>
-                                <img className="w-8 h-8" src={moon1} alt="" />
+                                <img className="w-6 h-6 lg:w-8 lg:h-8" src={moon1} alt="" />
                             </>
                         }
                     </button>
                     {
-                        user?.displayName ? <p className="text-[9px] md:text-base font-bold mr-2 py-2 bg-yellow-500 px-2 rounded-3xl">{user.displayName}</p>
+                        user?.displayName ? <p className="text-[6px] md:text-base font-bold mr-2 py-2 bg-yellow-500 px-2 rounded-3xl">{user.displayName}</p>
                             :
                             ""
                     }

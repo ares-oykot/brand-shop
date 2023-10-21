@@ -39,7 +39,7 @@ const SignIn = () => {
         <div>
             <div className='mb-20'>
                 <div className="max-w-screen-xl mx-auto">
-                    <form onSubmit={handleLogin} className="w-2/5 mx-auto rounded-t-xl rounded-b-xl shadow-xl pb-10 my-10">
+                    <form onSubmit={handleLogin} className="lg:w-2/5 mx-auto rounded-t-xl rounded-b-xl shadow-xl pb-10 my-10">
                         <h1 className="py-6 rounded-t-xl  bg-[#6FB554] text-center text-white font-bold text-3xl">Sign In</h1>
                         <div className="px-7">
                             <div onClick={handleGoogleSignIn} className="mt-10 bg-gradient-to-r from-green-400 to-red-500 duration-500 hover:from-red-500 hover:to-green-400 rounded-3xl flex justify-center items-center gap-1 py-2 cursor-pointer">

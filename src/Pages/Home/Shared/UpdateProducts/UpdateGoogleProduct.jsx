@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-
+import swal from 'sweetalert';
 const UpdateGoogleProduct = () => {
     const google = useLoaderData();
     const [brand, setBrand] = useState(google.brand);
@@ -30,12 +30,14 @@ const UpdateGoogleProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if(data.modifiedCount > 0){
+                    swal("Nice!!", "Product Updated successful", "success");
+                }
             });
     };
     return (
         <div>
-            <div className="h-[150vh]">
+            <div className="">
                 <div className="md:w-1/2 mx-auto shadow-xl">
                     <h2 className="text-center text-3xl font-bold bg-slate-200 pt-4 text-lime-500">Update Product</h2>
                     <div className="bg-slate-200 flex justify-center items-center py-5"><img className='rounded-lg h-[170px] lg:h-[280px]' src={google.URL} alt="" /></div>

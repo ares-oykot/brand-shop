@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-
+import swal from 'sweetalert';
 const ProductDetailsXiaomi = () => {
     const xiaomiProduct = useLoaderData();
     const handleAddToCart = () => {
@@ -21,13 +21,15 @@ const ProductDetailsXiaomi = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if(data.acknowledged){
+                    swal("Nice!!", "Product Added successful", "success");
+                }
             });
     };
     return (
         <div>
             <div className="mt-5">
-                <div className="mx-96 p-8 bg-slate-200 rounded">
+                <div className="lg:mx-96 p-8 bg-slate-200 rounded">
                     <div className="w-full">
                         <img className="mx-auto w-full rounded-t" src={xiaomiProduct.URL} alt="" />
                     </div>

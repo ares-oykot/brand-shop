@@ -6,13 +6,13 @@ const Apple = () => {
     return (
         <div>
             <Advertisement></Advertisement>
-            <div className="grid grid-cols-2 gap-5 mt-5 hover:shadow-xl max-w-screen-xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5 mt-5 hover:shadow-xl max-w-screen-xl mx-auto">
                 {
                     apple?.map((product) =>
                         <div key={product._id}>
-                            <div style={{ height: "16.5rem" }} className="p-5 bg-amber-200 hover:bg-slate-200 duration-200 rounded-md flex">
+                            <div className="p-5 lg:h-[16.5rem] bg-amber-200 hover:bg-slate-200 duration-200 rounded-md flex flex-col lg:flex-row">
                                 <div className="w-full">
-                                    <img className="w-80 h-56 rounded-l-md" src={product.URL} alt="" />
+                                    <img className="lg:w-80 lg:h-56 rounded-l-md" src={product.URL} alt="" />
                                 </div>
                                 <div className="p-5 flex flex-col justify-between bg-yellow-400 hover:bg-yellow-300 duration-300 h-full rounded-r-md w-full">
                                     <div className="">

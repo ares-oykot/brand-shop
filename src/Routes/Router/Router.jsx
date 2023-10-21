@@ -25,11 +25,13 @@ import UpdateAsusProduct from "../../Pages/Home/Shared/UpdateProducts/UpdateAsus
 import UpdateXiaomiProduct from "../../Pages/Home/Shared/UpdateProducts/UpdateXiaomiProduct";
 import UpdateSonyProduct from "../../Pages/Home/Shared/UpdateProducts/UpdateSonyProduct";
 import UpdateGoogleProduct from "../../Pages/Home/Shared/UpdateProducts/UpdateGoogleProduct";
+import Error from "../../Pages/Error/Error";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: "/",

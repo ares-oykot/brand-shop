@@ -46,9 +46,6 @@ const MyCart = () => {
                         </div>)
                 }
             </div>
-            <div className="flex justify-center mt-5">
-                <button className="text-2xl bg-green-400 hover:bg-green-500 duration-300 hover:px-12 hover:text-3xl px-10 py-2 font-medium  rounded-md border">Buy All Product</button>
-            </div>
         </div>
     );
 };

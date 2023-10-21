@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/brands')
+                loader: () => fetch('https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/brands')
             },
             {
                 path: '/temp',
@@ -49,98 +49,98 @@ const router = createBrowserRouter([
             {
                 path: '/myCart',
                 element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,
-                loader: () => fetch('http://localhost:5000/cart')
+                loader: () => fetch('https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/cart')
             },
             {
                 path: '/apple',
                 element: <Apple></Apple>,
-                loader: () => fetch('http://localhost:5000/apple')
+                loader: () => fetch('https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/apple')
             },
             {
                 path: '/samsung',
                 element: <Samsung></Samsung>,
-                loader: () => fetch('http://localhost:5000/samsung')
+                loader: () => fetch('https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/samsung')
             },
             {
                 path: '/xiaomi',
                 element: <Xiaomi></Xiaomi>,
-                loader: () => fetch('http://localhost:5000/xiaomi')
+                loader: () => fetch('https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/xiaomi')
             },
             {
                 path: '/asus',
                 element: <Asus></Asus>,
-                loader: () => fetch('http://localhost:5000/asus')
+                loader: () => fetch('https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/asus')
             },
             {
                 path: '/google',
                 element: <Google></Google>,
-                loader: () => fetch('http://localhost:5000/google')
+                loader: () => fetch('https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/google')
             },
             {
                 path: '/sony',
                 element: <Sony></Sony>,
-                loader: () => fetch('http://localhost:5000/sony')
+                loader: () => fetch('https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/sony')
             },
             {
                 path: '/productDetailsApple/:id',
                 element: <PrivetRoute><ProductDetailsApple></ProductDetailsApple></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/apple/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/apple/${params.id}`)
             },
             {
                 path: '/productDetailsSamsung/:id',
                 element: <PrivetRoute><ProductDetailsSamsung></ProductDetailsSamsung></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/samsung/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/samsung/${params.id}`)
             },
             {
                 path: '/productDetailsAsus/:id',
                 element: <PrivetRoute><ProductDetailsAsus></ProductDetailsAsus></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/asus/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/asus/${params.id}`)
             },
             {
                 path: '/productDetailsXiaomi/:id',
                 element: <PrivetRoute><ProductDetailsXiaomi></ProductDetailsXiaomi></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/xiaomi/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/xiaomi/${params.id}`)
             },
             {
                 path: '/productDetailsSony/:id',
                 element: <PrivetRoute><ProductDetailsSony></ProductDetailsSony></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/sony/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/sony/${params.id}`)
             },
             {
                 path: '/productDetailsGoogle/:id',
                 element: <PrivetRoute><ProductDetailsGoogle></ProductDetailsGoogle></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/google/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/google/${params.id}`)
             },
             //////////////
             {
                 path: '/updateApple/:id',
                 element: <PrivetRoute><UpdateAppleProduct></UpdateAppleProduct></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/apple/${params.id}`)
-            }, 
+                loader: ({ params }) => fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/apple/${params.id}`)
+            },
             {
                 path: '/updateSamsung/:id',
                 element: <PrivetRoute><UpdateSamsungProduct></UpdateSamsungProduct></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/samsung/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/samsung/${params.id}`)
             },
             {
                 path: '/updateAsus/:id',
                 element: <PrivetRoute><UpdateAsusProduct></UpdateAsusProduct></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/asus/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/asus/${params.id}`)
             },
             {
                 path: '/updateXiaomi/:id',
                 element: <PrivetRoute><UpdateXiaomiProduct></UpdateXiaomiProduct></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/xiaomi/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/xiaomi/${params.id}`)
             },
             {
                 path: '/updateSony/:id',
                 element: <PrivetRoute><UpdateSonyProduct></UpdateSonyProduct></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/sony/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/sony/${params.id}`)
             },
             {
                 path: '/updateGoogle/:id',
                 element: <PrivetRoute><UpdateGoogleProduct></UpdateGoogleProduct></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/google/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/google/${params.id}`)
             },
             {
                 path: '/signIn',

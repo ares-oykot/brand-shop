@@ -4,11 +4,11 @@ const Temporary = () => {
         const form = event.target;
         const name = form.name.value;
         const photo = form.photo.value;
-        const brand = {name, photo};
-        fetch('http://localhost:5000/brands', {
+        const brand = { name, photo };
+        fetch('https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/brands', {
             method: 'POST',
             headers: {
-                'content-type' : 'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(brand)
         })

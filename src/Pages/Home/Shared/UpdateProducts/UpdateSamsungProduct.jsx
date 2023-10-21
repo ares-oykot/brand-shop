@@ -20,8 +20,8 @@ const UpdateSamsungProduct = () => {
         const description = form.description.value;
         const rating = form.rating.value;
         const URL = form.photo.value;
-        const products = { name, price, description, rating, URL, productType, brand};
-        fetch(`http://localhost:5000/samsung/${samsung._id}`, {
+        const products = { name, price, description, rating, URL, productType, brand };
+        fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/samsung/${samsung._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -30,7 +30,7 @@ const UpdateSamsungProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.modifiedCount > 0){
+                if (data.modifiedCount > 0) {
                     swal("Nice!!", "Product Updated successful", "success");
                 }
             });

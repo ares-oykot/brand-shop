@@ -6,12 +6,12 @@ const MyCart = () => {
     const loadedMyCart = useLoaderData();
     const [myCart, setMyCart] = useState(loadedMyCart);
     const handleRemove = (id) => {
-        fetch(`http://localhost:5000/cart/${id}`, {
+        fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/cart/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
             .then(data => {
-                if(data?.deletedCount > 0){
+                if (data?.deletedCount > 0) {
                     const remaining = myCart?.filter(product => product._id !== id);
                     setMyCart(remaining);
                     swal("Nice!!", "Product Remove successful", "success");

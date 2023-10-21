@@ -12,10 +12,10 @@ const ProductDetailsApple = () => {
         const brand = appleProduct.brand;
         const rating = appleProduct.rating;
         const photoURL = appleProduct.URL;
-        const cart = {name, description, price, type, brand, rating, photoURL};
-        
-        fetch('http://localhost:5000/cart', {
-            method: 'POST', 
+        const cart = { name, description, price, type, brand, rating, photoURL };
+
+        fetch('https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/cart', {
+            method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
@@ -23,7 +23,7 @@ const ProductDetailsApple = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.acknowledged){
+                if (data.acknowledged) {
                     swal("Nice!!", "Product Added successful", "success");
                 }
             });

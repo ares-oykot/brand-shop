@@ -7,7 +7,7 @@ const Sony = () => {
         <div>
             <Advertisement></Advertisement>
             {
-                typeof(sony) === 'object' ?
+                sony.length > 0 ?
                     <>
                         <div className="grid lg:grid-cols-2 gap-5 mt-5 hover:shadow-xl max-w-screen-xl mx-auto">
                             {
@@ -38,7 +38,7 @@ const Sony = () => {
                     </>
                     :
                     <>
-                        <h1>Product coming soon</h1>
+                        <h1 className="text-4xl font-black text-center lg:mt-40 text-lime-500 lg:mb-40">Product coming soon</h1>
                     </>
             }
         </div>

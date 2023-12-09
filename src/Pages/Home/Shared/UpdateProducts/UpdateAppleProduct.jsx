@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
-import swal from 'sweetalert';
+import swal from 'sweetalert'; 
 
 const UpdateAppleProduct = () => {
     const apple = useLoaderData();

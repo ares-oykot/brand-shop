@@ -11,7 +11,7 @@ const MyCart = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data?.deletedCount > 0) {
+                if (data.deletedCount > 0) {
                     const remaining = myCart?.filter(product => product._id !== id);
                     setMyCart(remaining);
                     swal("Nice!!", "Product Remove successful", "success");

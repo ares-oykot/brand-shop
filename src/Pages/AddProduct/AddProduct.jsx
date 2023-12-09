@@ -20,17 +20,7 @@ const AddProduct = () => {
         const rating = form.rating.value;
         const URL = form.photo.value;
         const products = { name, price, description, rating, URL, productType, brand };
-        fetch(`https://brand-shop-server-g3w0fhpjo-soykots-projects.vercel.app/${brand}`, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(products)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-            });
+        
     };
     return (
         <div className="">

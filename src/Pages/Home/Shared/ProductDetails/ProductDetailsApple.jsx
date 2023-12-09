@@ -9,7 +9,7 @@ const ProductDetailsApple = () => {
         const description = appleProduct.description;
         const price = appleProduct.price;
         const type = appleProduct.productType;
-        const brand = appleProduct.brand;
+        const brand = appleProduct.brand;   
         const rating = appleProduct.rating;
         const photoURL = appleProduct.URL;
         const cart = { name, description, price, type, brand, rating, photoURL };

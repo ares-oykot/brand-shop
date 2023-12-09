@@ -26,7 +26,7 @@ const Apple = () => {
                                     <div className="flex gap-2">
                                         <Link to={`/productDetailsApple/${product._id}`} ><button className="bg-green-500 hover:bg-green-600 duration-200 px-7 py-1 rounded mt-1 font-medium">Details</button></Link>
                                         <Link to={`/updateApple/${product._id}`}><button className="bg-green-500 hover:bg-green-600 duration-200 px-7 py-1 rounded mt-1 font-medium">Update</button></Link>                                        
-                                    </div>
+                                    </div>  
                                 </div>
                             </div>
                         </div>)
